@@ -1,17 +1,18 @@
+#include "main.hh"
 #include "Efc.hh"
 #include "ELog.hh"
 
 static sp<ELogger> rootLogger = ELoggerManager::getRootLogger();
 static sp<ELogger> logger = ELoggerManager::getLogger("XXX.YYY.ZZZ");
 static void test_logger() {
-	ELoggerManager::init("log4j.properties");
+	ELoggerManager::init("log4e.properties");
 
 	try {
 
 		logger->info("xxxxxxxxxxxxxx");
 		logger->warn_("xxxxxxxxxxxxxx%s", "z");
 
-		throw EException("exception:", __FILE__, __LINE__);
+		throw EException(__FILE__, __LINE__, "exception:");
 	} catch (EException& e) {
 //		ELOG_E(logger, "xxxxxxxxxxxxxx[%s]", e.getMessage());
 //		ELOG__E(logger, "xxxxxxxxxxxxxx", e);
@@ -39,7 +40,7 @@ static void test_logger() {
 }
 
 static void test_logger_multi_threads() {
-	ELoggerManager::init("log4j.properties");
+	ELoggerManager::init("log4e.properties");
 
 	class ThreadX : public EThread {
 	public:
@@ -50,6 +51,8 @@ static void test_logger_multi_threads() {
 				EMDC mdc("x1", "v1");
 				mdc.put("x2", "v2");
 
+				ELOG_I(logger, "i=%d", i++);
+				ELOG_W(logger, "i=%d", i++);
 				ELOG_E(logger, "i=%d", i++);
 
 				EThread::sleep(100);
@@ -82,7 +85,7 @@ static void test_test(int argc, const char** argv) {
 //	EThread::sleep(3000);
 }
 
-int main(int argc, const char** argv) {
+MAIN_IMPL(testlog) {
 	printf("main()\n");
 
 	ESystem::init(argc, argv);

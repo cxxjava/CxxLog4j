@@ -621,6 +621,8 @@ EPatternLayout::EPatternLayout(EConfig* props, EString& prefix) :
 		conversionPattern ="%m%n";
 	}
 
+	parsedPattern.setThreadSafe(false);
+
 	pl::PatternParser pp(conversionPattern);
 	pp.parseTo(parsedPattern);
 }

@@ -56,10 +56,6 @@ namespace log {
   instance from just one appender.
 
   <p>{@link PatternLayout} offers a much more flexible alternative.
-
-  @author Ceki G&uuml;lc&uuml;
-  @author <A HREF="mailto:heinz.richter@ecmwf.int">Heinz Richter</a>
-
 */
 
 class ETTCCLayout: public EAbstractLayout {

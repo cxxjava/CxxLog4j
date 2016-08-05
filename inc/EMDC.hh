@@ -35,8 +35,6 @@ namespace mdc {
    harm your application.
 
    @since 1.2
-
-   @author Ceki G&uuml;lc&uuml;
 */
 
 class EMDC: public EObject {
@@ -101,8 +99,8 @@ private:
 	// No instances allowed.
 	EMDC() {}
 
-	static mdc::ThreadLocal* localObj;
-	static mdc::ThreadLocal* getLocalObj();
+	static EThreadLocalVariable<mdc::ThreadLocal, EHashMap<EString*, EString*> >* localObj;
+	static EThreadLocalVariable<mdc::ThreadLocal, EHashMap<EString*, EString*> >* getLocalObj();
 };
 
 } /* namespace log */

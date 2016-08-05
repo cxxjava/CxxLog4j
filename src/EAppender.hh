@@ -68,7 +68,7 @@ interface EAppender : virtual public EObject {
 	 implementation admits a layout but can also work without it, then
 	 the appender should return <code>true</code>.
 	 */
-	virtual bool requiresLayout() = 0;
+	virtual boolean requiresLayout() = 0;
 };
 
 } /* namespace log */

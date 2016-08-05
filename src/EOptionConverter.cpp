@@ -74,10 +74,10 @@ EString EOptionConverter::substVars(const char* value, EConfig* props) {
 			sbuf.append(val.substring(i, j));
 			k = val.indexOf(DELIM_STOP, j);
 			if (k == -1) {
-				throw EIllegalArgumentException(
+				throw EIllegalArgumentException(__FILE__, __LINE__, 
 						EString::formatOf(
 								"\"%s\" has no closing brace. Opening brace at position %d.",
-								val.c_str(), j).c_str(), __FILE__, __LINE__);
+								val.c_str(), j).c_str());
 			} else {
 				j += DELIM_START_LEN;
 				EString key = val.substring(j, k);

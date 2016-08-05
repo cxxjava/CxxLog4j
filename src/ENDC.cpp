@@ -40,15 +40,15 @@ private:
     int maxSize;
 };
 
-class ThreadLocal : public EThreadLocal<StackSizable*> {
+class ThreadLocal : public EThreadLocal {
 public:
-	virtual StackSizable* initialValue() {
+	virtual EObject* initialValue() {
 		return new StackSizable();
 	}
 };
 } //
 
-ndc::ThreadLocal* ENDC::localObj;
+EThreadLocalVariable<ndc::ThreadLocal, ndc::StackSizable>* ENDC::localObj;
 
 DEFINE_STATIC_INITZZ_BEGIN(ENDC)
 	ESystem::_initzz_();
@@ -56,8 +56,8 @@ DEFINE_STATIC_INITZZ_BEGIN(ENDC)
 	localObj = getLocalObj();
 DEFINE_STATIC_INITZZ_END
 
-ndc::ThreadLocal* ENDC::getLocalObj() {
-	static ndc::ThreadLocal gLocalObj;
+EThreadLocalVariable<ndc::ThreadLocal, ndc::StackSizable>* ENDC::getLocalObj() {
+	static EThreadLocalVariable<ndc::ThreadLocal, ndc::StackSizable> gLocalObj;
 	localObj = &gLocalObj;
 	return localObj;
 }

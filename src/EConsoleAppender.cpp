@@ -40,7 +40,7 @@ void EConsoleAppender::setLayout(ELayout* layout) {
 	this->layout = layout;
 }
 
-bool EConsoleAppender::requiresLayout() {
+boolean EConsoleAppender::requiresLayout() {
 	return true;
 }
 

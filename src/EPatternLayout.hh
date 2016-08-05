@@ -423,10 +423,6 @@ private:
    Philip E. Margolis' highly recommended book "C -- a Software
    Engineering Approach", ISBN 0-387-97389-3.
 
-   @author <a href="mailto:cakalijp@Maritz.com">James P. Cakalic</a>
-   @author Ceki G&uuml;lc&uuml;
-
-
    @since 0.8.2 */
 
 class EPatternLayout: public EAbstractLayout {

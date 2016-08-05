@@ -22,7 +22,7 @@ namespace log {
    </pre>
 
    <p>
-   @author Ceki G&uuml;lc&uuml;
+
    @since version 0.7.0
 
    <p>{@link PatternLayout} offers a much more powerful alternative.

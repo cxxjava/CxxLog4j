@@ -52,9 +52,6 @@ namespace log {
    <code>${java.home}</code> will be interpreted as
    <code>/home/xyz</code>.
 
-
-   @author Ceki G&uuml;lc&uuml;
-   @author Anders Kristensen
    @since 0.8.1 */
 
 class EConfigurator {

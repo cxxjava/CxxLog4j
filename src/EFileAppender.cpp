@@ -36,7 +36,7 @@ void EFileAppender::close() {
 	SYNCHRONIZED(this) {
 		delete file_;
 		file_ = null;
-	}}
+	}
 }
 
 void EFileAppender::append(ELogEvent& event) {
@@ -54,7 +54,7 @@ void EFileAppender::setLayout(ELayout* layout) {
 	this->layout = layout;
 }
 
-bool EFileAppender::requiresLayout() {
+boolean EFileAppender::requiresLayout() {
 	return true;
 }
 

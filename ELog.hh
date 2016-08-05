@@ -1,5 +1,5 @@
 /*
- * Elog.hh
+ * ELog.hh
  *
  *  Created on: 2015-7-29
  *      Author: cxxjava@163.com

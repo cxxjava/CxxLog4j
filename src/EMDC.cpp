@@ -13,15 +13,15 @@ namespace log {
 
 namespace mdc {
 
-class ThreadLocal : public EThreadLocal<EHashMap<EString*, EString*>*> {
+class ThreadLocal : public EThreadLocal {
 public:
-	virtual EHashMap<EString*, EString*>* initialValue() {
+	virtual EObject* initialValue() {
 		return new EHashMap<EString*, EString*>();
 	}
 };
 } //
 
-mdc::ThreadLocal* EMDC::localObj;
+EThreadLocalVariable<mdc::ThreadLocal, EHashMap<EString*, EString*> >* EMDC::localObj;
 
 DEFINE_STATIC_INITZZ_BEGIN(EMDC)
 	ESystem::_initzz_();
@@ -29,8 +29,8 @@ DEFINE_STATIC_INITZZ_BEGIN(EMDC)
 	localObj = getLocalObj();
 DEFINE_STATIC_INITZZ_END
 
-mdc::ThreadLocal* EMDC::getLocalObj() {
-	static mdc::ThreadLocal gLocalObj;
+EThreadLocalVariable<mdc::ThreadLocal, EHashMap<EString*, EString*> >* EMDC::getLocalObj() {
+	static EThreadLocalVariable<mdc::ThreadLocal, EHashMap<EString*, EString*> > gLocalObj;
 	localObj = &gLocalObj;
 	return localObj;
 }

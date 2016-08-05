@@ -15,6 +15,7 @@ namespace log {
 
 namespace ndc {
 	class ThreadLocal;
+    class StackSizable;
 }
 
 /**
@@ -84,9 +85,7 @@ namespace ndc {
    #cloneStack cloneStack} method and pass the reference to any other
    thread, in particular to a child.
 
-   @author Ceki G&uuml;lc&uuml;
    @since 0.7.0
-
 */
 
 class ENDC: public EObject {
@@ -231,8 +230,8 @@ private:
 	// No instances allowed.
 	ENDC() {}
 
-	static ndc::ThreadLocal* localObj;
-	static ndc::ThreadLocal* getLocalObj();
+	static EThreadLocalVariable<ndc::ThreadLocal, ndc::StackSizable>* localObj;
+	static EThreadLocalVariable<ndc::ThreadLocal, ndc::StackSizable>* getLocalObj();
 };
 
 } /* namespace log */

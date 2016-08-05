@@ -150,7 +150,7 @@ protected:
 
 			if (renameSucceeded) {
 				// Rename fileName to fileName.1
-				x = fileName + "." + 1;
+				x = fileName + '.' + 1;
 				EFile target(x.c_str());
 
 				this->closeFile(); // keep windows happy.
@@ -254,7 +254,7 @@ private:
 				this->add(ECalendar::MONTH, 1);
 				break;
 			default:
-				throw EIllegalStateException("Unknown periodicity type.", __FILE__, __LINE__);
+				throw EIllegalStateException(__FILE__, __LINE__, "Unknown periodicity type.");
 			}
 			return getTime();
 		}
@@ -500,7 +500,7 @@ void EFileLogWriter::reset(EFileAppender* fa) {
 				imp = new FileLogWriterImp(ofile, fa);
 				return;
 			}
-		}}
+		}
 	} catch (EIOException& e) {
 	}
 }
@@ -508,7 +508,7 @@ void EFileLogWriter::reset(EFileAppender* fa) {
 void EFileLogWriter::write(const void* data, int len) {
 	SYNCHRONIZED(this) {
 		imp->write(data, len);
-	}}
+	}
 }
 
 } /* namespace log */

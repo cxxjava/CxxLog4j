@@ -46,8 +46,6 @@ namespace log {
  *
  * <p>Once you are comfortable using loggers, i.e. instances of this interface, consider using
  * <a href="MDC.html">MDC</a> as well as <a href="Marker.html">Markers</a>.</p>
- *
- * @author Ceki G&uuml;lc&uuml;
  */
 
 interface ELogger : virtual public EObject {

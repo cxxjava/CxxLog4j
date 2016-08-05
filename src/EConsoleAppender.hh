@@ -20,7 +20,7 @@ public:
 	virtual void close();
 	virtual void append(ELogEvent& event);
 	virtual void setLayout(ELayout* layout);
-	virtual bool requiresLayout();
+	virtual boolean requiresLayout();
 
 protected:
 	boolean logToStdErr;
