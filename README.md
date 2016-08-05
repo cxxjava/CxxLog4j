@@ -6,20 +6,20 @@
 *chinese version: [简体中文](README.zh_cn.md)*
 
 ### Table of Contents
-  - [Characteristics](#Characteristics:)
-  - [Example](#Example:)
-  - [Configuration](#Configuration:)
-  - [Dependency](#Dependency:)
-  - [TODO](#TODO:)
-  - [Support](#Support:)
+  - [Characteristics](#characteristics)
+  - [Example](#example)
+  - [Configuration](#configuration)
+  - [Dependency](#dependency)
+  - [TODO](#todo)
+  - [Support](#support)
 
-####Characteristics:
+####Characteristics
 * Cross platform: support Linux32/64, OSX64, Win64 platforms;
 * High performance: with the advantages of C/C++ and Java concurrent Libraries tegother, bursting performance;
 * Easy development: High imitation from Log4j1.2, support multiple log format output, api easy to use;
 * New feature: support modify log configuration file when program is running!
 
-####Example:
+####Example
   `c++:`
   
   ```
@@ -62,7 +62,7 @@
 more examples:  
 [testlog.cpp](test/testlog.cpp)  
 
-####Configuration:
+####Configuration
 Reference the log4j 1.2 official properties configuration manual.
 
 Example: [log4e.properties](test/log4e.properties)
@@ -75,12 +75,12 @@ log.path = ./
 log4j.appender.file.File = ${log.path}/logs/all.log
 ```
 
-####Dependency:
+####Dependency
 `CxxLog4j` is based on [CxxJDK](https://github.com/cxxjava/cxxjdk).  
 
-####TODO:
+####TODO
     AsyncAppender
 
-####Support:
+####Support
 Email: [cxxjava@163.com](mailto:cxxjava@163.com)
 
