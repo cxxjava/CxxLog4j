@@ -1,0 +1,95 @@
+################OPTION###################
+# release or debug
+VERTYPE=RELEASE
+
+KERNEL:=$(shell uname)
+LIBDIR = linux
+
+ARCH:=$(shell uname -m)
+RC:=$(ARCH)
+BIT32:=i686
+BIT64:=x86_64
+
+$(info KERNEL=$(KERNEL))
+$(info ARCH=$(ARCH))
+
+ifeq ($(KERNEL),Darwin)
+    LIBDIR = osx
+endif
+
+ifeq ($(RC),$(BIT32))
+	SHAREDLIB = -lefc32 -leso32 -lrt -lm -ldl -lpthread -lcrypto
+else
+	SHAREDLIB = -lefc64 -leso64 -liconv -ldl -lpthread -lcrypto
+endif
+
+ifeq ($(VERTYPE), RELEASE)
+CCOMPILEOPTION = -c -g -O2
+CPPCOMPILEOPTION = -std=c++11 -c -g -O2 -fpermissive
+TESTLOG = testlog
+else
+CCOMPILEOPTION = -c -g
+CPPCOMPILEOPTION = -std=c++11 -c -g -fpermissive -DDEBUG
+TESTLOG = testlog_r
+endif
+
+CCOMPILE = gcc
+CPPCOMPILE = g++
+INCLUDEDIR = -I../../CxxJDK/inc \
+	-I../../CxxJDK/inc/comm \
+	-I../../CxxJDK/inc/efc \
+	-I../../CxxJDK/inc/efc/concurrent \
+	-I../../CxxJDK/inc/efc/nio \
+	-I../../CxxJDK/inc/libc \
+	-I../inc \
+	-I../ \
+
+LINK = g++
+LINKOPTION = -std=c++11 -g
+LIBDIRS = -L../../CxxJDK/lib/$(LIBDIR)
+APPENDLIB = 
+
+BASE_OBJS = main.o 
+
+TESTLOG_OBJS = testlog.o \
+	../src/EAbstractAppender.o \
+	../src/EAbstractLayout.o \
+	../src/EAppenderFactory.o \
+	../src/EConfiguration.o \
+	../src/EConfigurator.o \
+	../src/EConsoleAppender.o \
+	../src/EDailyRollingFileAppender.o \
+	../src/EFileAppender.o \
+	../src/EFileLogWriter.o \
+	../src/EHTMLLayout.o \
+	../src/ELayoutFactory.o \
+	../src/ELogEvent.o \
+	../src/ELoggerConfig.o \
+	../src/ELoggerImp.o \
+	../src/ELoggerManager.o \
+	../src/ELoggerManagerImp.o \
+	../src/EMDC.o \
+	../src/ENDC.o \
+	../src/EOptionConverter.o \
+	../src/EPatternLayout.o \
+	../src/ERollingFileAppender.o \
+	../src/ESimpleLayout.o \
+	../src/ETTCCLayout.o \
+	../src/ETransform.o \
+
+$(TESTLOG): $(BASE_OBJS) $(TESTLOG_OBJS) $(APPENDLIB)
+	$(LINK) $(LINKOPTION) -o $(TESTLOG) $(LIBDIRS) $(BASE_OBJS) $(TESTLOG_OBJS) $(SHAREDLIB) $(APPENDLIB)
+
+clean: 
+	rm -f $(BASE_OBJS) $(TESTLOG_OBJS)
+
+all: clean $(TESTLOG) clean
+.PRECIOUS:%.cpp %.c
+.SUFFIXES:
+.SUFFIXES:  .c .o .cpp
+
+.cpp.o:
+	$(CPPCOMPILE) -c -o $*.o $(CPPCOMPILEOPTION) $(INCLUDEDIR)  $*.cpp
+
+.c.o:
+	$(CCOMPILE) -c -o $*.o $(CCOMPILEOPTION) $(INCLUDEDIR) $*.c
