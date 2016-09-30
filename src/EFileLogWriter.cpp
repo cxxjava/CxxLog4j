@@ -500,7 +500,7 @@ void EFileLogWriter::reset(EFileAppender* fa) {
 				imp = new FileLogWriterImp(ofile, fa);
 				return;
 			}
-		}
+        }}
 	} catch (EIOException& e) {
 	}
 }
@@ -508,7 +508,7 @@ void EFileLogWriter::reset(EFileAppender* fa) {
 void EFileLogWriter::write(const void* data, int len) {
 	SYNCHRONIZED(this) {
 		imp->write(data, len);
-	}
+    }}
 }
 
 } /* namespace log */

@@ -300,7 +300,7 @@ public:
 			EHashMap<EString*, EString*>* hm = event.getMDC();
 			if (hm) {
 				ESet<EMapEntry<EString*, EString*>*> *set = hm->entrySet();
-				EIterator<EMapEntry<EString*, EString*>*> *iter = set->iterator();
+				sp<EIterator<EMapEntry<EString*, EString*>*> > iter = set->iterator();
 				while(iter->hasNext()) {
 					EMapEntry<EString*, EString*>* me = iter->next();
 					EString x = EString::formatOf("{%s,%s}",
@@ -308,7 +308,6 @@ public:
 							me->getValue()->c_str());
 					result += x;
 				}
-				delete iter;
 			}
 
 			return result;
@@ -634,12 +633,11 @@ const char* EPatternLayout::getConversionPattern() {
 EString EPatternLayout::format(ELogEvent& event) {
 	EString output;
 
-	EEnumeration<pl::PatternConverter*>* e = parsedPattern.elements();
-	for (; e && e->hasMoreElements();) {
+	sp<EEnumeration<pl::PatternConverter*> > e = parsedPattern.elements();
+	for (; e != null && e->hasMoreElements();) {
 		pl::PatternConverter *pc = (pl::PatternConverter*)e->nextElement();
 		if (pc) pc->formatAndAppend(output, event);
 	}
-	delete e;
 
 	return output;
 }

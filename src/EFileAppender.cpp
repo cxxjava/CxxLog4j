@@ -36,7 +36,7 @@ void EFileAppender::close() {
 	SYNCHRONIZED(this) {
 		delete file_;
 		file_ = null;
-	}
+    }}
 }
 
 void EFileAppender::append(ELogEvent& event) {

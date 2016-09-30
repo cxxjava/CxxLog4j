@@ -51,7 +51,7 @@ void ELoggerManagerImp::flushConfig() {
 		if (conf != null) {
 			atomic_store(&this->configuration, conf);
 		}
-	}
+    }}
 }
 
 sp<ELogger> ELoggerManagerImp::getLogger(const char* name) {

@@ -279,7 +279,8 @@ ELogger::Level ELoggerImp::getLevel() {
 	return recentLevel;
 }
 
-boolean ELoggerImp::equals(ELoggerImp* obj) {
+boolean ELoggerImp::equals(EObject* o) {
+	ELoggerImp* obj = dynamic_cast<ELoggerImp*>(obj);
 	return obj ?
 			(((void*) this == (void*) obj) ?
 					true : (this->name.equals(obj->name) ? true : false )) :

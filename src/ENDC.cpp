@@ -81,7 +81,7 @@ EString ENDC::get() {
 	EString output;
 
 	ndc::StackSizable* ss = localObj->get();
-	EIterator<EString*> *iter = localObj->get()->iterator();
+	sp<EIterator<EString*> > iter = localObj->get()->iterator();
 	while (iter->hasNext()) {
 		EString* s = iter->next();
 		if (s) {
@@ -91,7 +91,6 @@ EString ENDC::get() {
 			output.append(s->c_str());
 		}
 	}
-	delete iter;
 	return output;
 }
 

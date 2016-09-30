@@ -276,7 +276,7 @@ public:
 	/**
 	 *
 	 */
-	virtual boolean equals(ELoggerImp* obj);
+	virtual boolean equals(EObject* obj);
 	virtual int hashCode();
 
 protected:
