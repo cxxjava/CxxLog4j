@@ -52,7 +52,6 @@ EThreadLocalVariable<ndc::ThreadLocal, ndc::StackSizable>* ENDC::localObj;
 
 DEFINE_STATIC_INITZZ_BEGIN(ENDC)
 	ESystem::_initzz_();
-	printf("ENDC::initzz()\n");
 	localObj = getLocalObj();
 DEFINE_STATIC_INITZZ_END
 

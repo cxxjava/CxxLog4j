@@ -25,7 +25,6 @@ EThreadLocalVariable<mdc::ThreadLocal, EHashMap<EString*, EString*> >* EMDC::loc
 
 DEFINE_STATIC_INITZZ_BEGIN(EMDC)
 	ESystem::_initzz_();
-	printf("EMDC::initzz()\n");
 	localObj = getLocalObj();
 DEFINE_STATIC_INITZZ_END
 

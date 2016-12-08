@@ -18,7 +18,6 @@ llong ELoggerManager::startTime;
 
 DEFINE_STATIC_INITZZ_BEGIN(ELoggerManager)
 	ESystem::_initzz_();
-	printf("ELoggerManager::initzz()\n");
 	imp = getLoggerManagerImp();
 	initialized = false;
 	startTime = ESystem::currentTimeMillis();

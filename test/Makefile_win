@@ -9,11 +9,11 @@ CCOMPILE = cl.exe
 LINK = link.exe
 
 !if $(VERTYPE) == RELEASE
-COMPILEOPTION = -c /Zi /nologo /W3 /WX- /O2 /Oy- /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Gd /analyze- -D_WINDOWS -D_MBCS -D_LIB -DES_DECLARE_EXPORT
+COMPILEOPTION = -c /Zi /nologo /W3 /WX- /O2 /Oy- /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Gd /analyze- -D_WINDOWS -D_MBCS -D_LIB -DES_DECLARE_EXPORT -D__MAIN__
 TESTLOG = testlog.exe
 !else
-COMPILEOPTION = -c /Zi /nologo /W3 /WX- /O2 /Oy- /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Gd /analyze- -D_WINDOWS -D_MBCS -D_LIB -DES_DECLARE_EXPORT
-TESTLOG = testlog_r.exe
+COMPILEOPTION = -c /Zi /nologo /W3 /WX- /O2 /Oy- /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Gd /analyze- -D_WINDOWS -D_MBCS -D_LIB -DES_DECLARE_EXPORT -D__MAIN__
+TESTLOG = testlog_d.exe
 !endif
 
 LINKOPTION = /NOLOGO /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86
@@ -22,6 +22,7 @@ INCLUDEDIR = -I..\..\CxxJDK\inc \
 	-I..\..\CxxJDK\inc\comm \
 	-I..\..\CxxJDK\inc\efc \
 	-I..\..\CxxJDK\inc\efc\concurrent \
+	-I..\..\CxxJDK\inc\efc\cpp11 \
 	-I..\..\CxxJDK\inc\efc\nio \
 	-I..\..\CxxJDK\inc\libc \
 	-I..\inc \
@@ -29,7 +30,7 @@ INCLUDEDIR = -I..\..\CxxJDK\inc \
 
 LIBDIRS = ..\..\CxxJDK\lib\$(LIBDIR)\eso8.lib ..\..\CxxJDK\lib\$(LIBDIR)\efc8.lib "Ws2_32.lib" "kernel32.lib" "user32.lib" "gdi32.lib" "winspool.lib" "comdlg32.lib" "advapi32.lib" "shell32.lib" "ole32.lib" "oleaut32.lib" "uuid.lib" "odbc32.lib" "odbccp32.lib"
 
-BASE_OBJS = main.obj \
+BASE_OBJS = 
 
 TESTLOG_OBJS = testlog.obj \
 	..\src\EAbstractAppender.obj \
@@ -61,7 +62,6 @@ $(TESTLOG): $(BASE_OBJS) $(TESTLOG_OBJS)
 	$(LINK) $(LINKOPTION) /out:$(TESTLOG) $(LIBDIRS) $(BASE_OBJS) $(TESTLOG_OBJS)
 
 clean: 
-	del $(BASE_OBJS)
 	del $(TESTLOG_OBJS) 
 
 all: clean $(TESTLOG) clean
