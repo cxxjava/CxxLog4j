@@ -43,6 +43,11 @@ public:
 	/**
 	 *
 	 */
+	void setLevel(ELogger::Level level);
+
+	/**
+	 *
+	 */
 	boolean getAdditivity();
 
 	/**
@@ -66,12 +71,12 @@ public:
 private:
 	EString name;
 
-	eal<EAppender> appenders;
+	EArrayList<sp<EAppender> > appenders;
 
 	EConfiguration* configuration;
 
 	/** The current log level */
-	ELogger::Level currentLogLevel;
+	EAtomicInteger /*ELogger::Level*/ currentLogLevel;
 	/** The min log threshold at appenders */
 	ELogger::Level minThreshold;
 

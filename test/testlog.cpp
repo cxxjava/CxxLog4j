@@ -6,6 +6,7 @@ static sp<ELogger> rootLogger = ELoggerManager::getRootLogger();
 static sp<ELogger> logger = ELoggerManager::getLogger("XXX.YYY.ZZZ");
 static void test_logger() {
 	ELoggerManager::init("log4e.properties");
+//	ELoggerManager::getRootLogger()->setLevel(ELogger::LEVEL_OFF);
 
 	try {
 
@@ -41,6 +42,7 @@ static void test_logger() {
 
 static void test_logger_multi_threads() {
 	ELoggerManager::init("log4e.properties");
+//	ELoggerManager::getRootLogger()->setLevel(ELogger::LEVEL_OFF);
 
 	class ThreadX : public EThread {
 	public:

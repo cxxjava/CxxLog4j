@@ -36,7 +36,15 @@ public:
 	 *
 	 * @return the Level associate with the Logger.
 	 */
-	ELogger::Level getLevel();
+	virtual ELogger::Level getLevel();
+
+	/**
+	 * Sets the Level associated with the Logger.
+	 *
+	 * @param level  the logger Level
+	 * @return the old Level associate with the Logger.
+	 */
+	virtual ELogger::Level setLevel(ELogger::Level level);
 
 	/**
 	 * Is the logger instance enabled for the TRACE level?

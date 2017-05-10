@@ -37,19 +37,39 @@ void ELoggerManagerImp::reset(const char* config) {
 
 void ELoggerManagerImp::flushConfig() {
 	SYNCBLOCK(&flushLock) {
-		llong lm = configFile->lastModified();
-		if (lastModified == lm) {
-			return;
-		}
-		lastModified = lm;
+		if (configFile->exists()) {
+			// if properties file is exist then use it first.
+			llong lm = configFile->lastModified();
+			if (lastModified == lm) {
+				return;
+			}
+			lastModified = lm;
 
-		EConfig properties;
-		properties.load(configFile);
+			EConfig properties;
+			properties.load(configFile);
 
-		EConfigurator configurator;
-		sp<EConfiguration> conf = configurator.doConfigure(&properties);
-		if (conf != null) {
-			atomic_store(&this->configuration, conf);
+			EConfigurator configurator;
+			sp<EConfiguration> conf = configurator.doConfigure(&properties);
+			if (conf != null) {
+				atomic_store(&this->configuration, conf);
+			}
+		} else {
+			// if not set properties file then output to stdout for default.
+			const char* default_props = "log4j.rootLogger=TRACE, stdout\r\n"
+					"log4j.appender.stdout = org.apache.log4j.ConsoleAppender\r\n"
+					"log4j.appender.stdout.Target = System.out\r\n"
+					"log4j.appender.stdout.layout = org.apache.log4j.PatternLayout\r\n"
+					"log4j.appender.stdout.layout.ConversionPattern = %d{ABSOLUTE} %5p %c{1}:%L - %m%n";
+			EByteArrayInputStream bais((void*)default_props, strlen(default_props));
+			EConfig properties;
+			properties.load(&bais);
+			EConfigurator configurator;
+			sp<EConfiguration> conf = configurator.doConfigure(&properties);
+			if (conf != null) {
+				atomic_store(&this->configuration, conf);
+			}
+
+			fprintf(stdout, "Not found log4j.properties file, logger default output to stdout.\n");
 		}
     }}
 }

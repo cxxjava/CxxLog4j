@@ -279,6 +279,17 @@ ELogger::Level ELoggerImp::getLevel() {
 	return recentLevel;
 }
 
+ELogger::Level ELoggerImp::setLevel(ELogger::Level level) {
+	ELogger::Level oldLevel = ELogger::LEVEL_OFF;
+	sp<EConfiguration> configuration = getLoggerManagerImp()->getCurrentConfigure(); //keep it alive!
+	ELoggerConfig* config = configuration->getLoggerConfig(name.c_str());
+	if (config) {
+		oldLevel = config->getLevel();
+		config->setLevel(level);
+	}
+	return oldLevel;
+}
+
 boolean ELoggerImp::equals(EObject* o) {
 	ELoggerImp* obj = dynamic_cast<ELoggerImp*>(obj);
 	return obj ?

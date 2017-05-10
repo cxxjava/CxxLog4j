@@ -23,7 +23,11 @@ const char* ELoggerConfig::getName() {
 }
 
 ELogger::Level ELoggerConfig::getLevel() {
-	return ES_MAX(currentLogLevel, minThreshold);
+	return (ELogger::Level)ES_MAX(currentLogLevel.get(), minThreshold);
+}
+
+void ELoggerConfig::setLevel(ELogger::Level level) {
+	currentLogLevel.set(level);
 }
 
 boolean ELoggerConfig::getAdditivity() {
@@ -46,7 +50,7 @@ boolean ELoggerConfig::isLevelEnabled(int logLevel) {
 ELogger::Level ELoggerConfig::log(ELogEvent& event) {
 	if (isLevelEnabled(event.getLevel())) {
 		for (int i = 0; i < appenders.size(); i++) {
-			appenders.get(i)->append(event);
+			appenders.getAt(i)->append(event);
 		}
 	}
 

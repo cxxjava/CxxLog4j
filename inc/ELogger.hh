@@ -76,6 +76,21 @@ public:
 	virtual const char* getName() = 0;
 
 	/**
+	 * Gets the Level associated with the Logger.
+	 *
+	 * @return the Level associate with the Logger.
+	 */
+	virtual Level getLevel() = 0;
+
+	/**
+	 * Sets the Level associated with the Logger.
+	 *
+	 * @param level  the logger Level
+	 * @return the old Level associate with the Logger.
+	 */
+	virtual ELogger::Level setLevel(Level level) = 0;
+
+	/**
 	 * Is the logger instance enabled for the TRACE level?
 	 *
 	 * @return True if this Logger is enabled for the TRACE level,

@@ -299,7 +299,7 @@ public:
 
 			EHashMap<EString*, EString*>* hm = event.getMDC();
 			if (hm) {
-				ESet<EMapEntry<EString*, EString*>*> *set = hm->entrySet();
+				sp<ESet<EMapEntry<EString*, EString*>*> > set = hm->entrySet();
 				sp<EIterator<EMapEntry<EString*, EString*>*> > iter = set->iterator();
 				while(iter->hasNext()) {
 					EMapEntry<EString*, EString*>* me = iter->next();
