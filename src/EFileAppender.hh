@@ -8,7 +8,7 @@
 #ifndef EFILEAPPENDER_HH_
 #define EFILEAPPENDER_HH_
 
-#include "EAbstractAppender.hh"
+#include "./EAbstractAppender.hh"
 
 namespace efc {
 namespace log {

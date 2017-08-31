@@ -5,9 +5,9 @@
  *      Author: cxxjava@163.com
  */
 
-#include "EConfiguration.hh"
-#include "ELogger.hh"
-#include "ELoggerManagerImp.hh"
+#include "./EConfiguration.hh"
+#include "./ELoggerManagerImp.hh"
+#include "../inc/ELogger.hh"
 
 namespace efc {
 namespace log {

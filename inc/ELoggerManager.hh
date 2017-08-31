@@ -8,8 +8,7 @@
 #ifndef ELOGGERMANAGER_HH_
 #define ELOGGERMANAGER_HH_
 
-#include "Efc.hh"
-#include "ELogger.hh"
+#include "./ELogger.hh"
 
 namespace efc {
 namespace log {

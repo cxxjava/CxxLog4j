@@ -8,7 +8,7 @@
 #ifndef ECONSOLEAPPENDER_HH_
 #define ECONSOLEAPPENDER_HH_
 
-#include "EAbstractAppender.hh"
+#include "./EAbstractAppender.hh"
 
 namespace efc {
 namespace log {

@@ -8,9 +8,9 @@
 #ifndef ELOGGERIMP_HH_
 #define ELOGGERIMP_HH_
 
-#include "ELogger.hh"
-#include "ELoggerConfig.hh"
 #include "ESharedPtr.hh"
+#include "./ELoggerConfig.hh"
+#include "../inc/ELogger.hh"
 
 namespace efc {
 namespace log {

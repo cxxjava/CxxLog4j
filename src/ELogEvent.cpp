@@ -5,9 +5,9 @@
  *      Author: cxxjava@163.com
  */
 
-#include "ELogEvent.hh"
-#include "EMDC.hh"
-#include "ENDC.hh"
+#include "./ELogEvent.hh"
+#include "../inc/EMDC.hh"
+#include "../inc/ENDC.hh"
 
 namespace efc {
 namespace log {

@@ -9,9 +9,9 @@
 #define ECONFIGURATOR_HH_
 
 #include "Efc.hh"
-#include "ELogger.hh"
-#include "ELoggerConfig.hh"
-#include "EConfiguration.hh"
+#include "./ELoggerConfig.hh"
+#include "./EConfiguration.hh"
+#include "../inc/ELogger.hh"
 
 namespace efc {
 namespace log {

@@ -8,7 +8,7 @@
 #ifndef EDAILYROLLINGFILEAPPENDER_HH_
 #define EDAILYROLLINGFILEAPPENDER_HH_
 
-#include "ERollingFileAppender.hh"
+#include "./ERollingFileAppender.hh"
 
 namespace efc {
 namespace log {

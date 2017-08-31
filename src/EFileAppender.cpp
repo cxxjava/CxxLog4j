@@ -5,9 +5,9 @@
  *      Author: cxxjava@163.com
  */
 
-#include "EFileAppender.hh"
-#include "ELoggerManagerImp.hh"
-#include "EOptionConverter.hh"
+#include "./EFileAppender.hh"
+#include "./ELoggerManagerImp.hh"
+#include "./EOptionConverter.hh"
 
 namespace efc {
 namespace log {
@@ -29,7 +29,7 @@ EFileAppender::EFileAppender(EConfiguration* conf, EConfig* props, EString& pref
 	EString bufferedIOPrefix = prefix + ".BufferedIO";
 	bufferedIO_ = props->getBoolean(bufferedIOPrefix.c_str(), false);
 	EString bufferSizePrefix = prefix + ".BufferSize";
-	bufferSize_ = props->getInteger(bufferSizePrefix.c_str(), 8192); //8KB
+	bufferSize_ = props->getInt(bufferSizePrefix.c_str(), 8192); //8KB
 }
 
 void EFileAppender::close() {

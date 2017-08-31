@@ -9,9 +9,9 @@
 #define ELOGGERMANAGERIMP_HH_
 
 #include "Efc.hh"
-#include "ELogger.hh"
-#include "ELoggerManager.hh"
-#include "EConfiguration.hh"
+#include "./EConfiguration.hh"
+#include "../inc/ELogger.hh"
+#include "../inc/ELoggerManager.hh"
 
 namespace efc {
 namespace log {

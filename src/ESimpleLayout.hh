@@ -8,7 +8,7 @@
 #ifndef ESIMPLELAYOUT_HH_
 #define ESIMPLELAYOUT_HH_
 
-#include "EAbstractLayout.hh"
+#include "./EAbstractLayout.hh"
 
 namespace efc {
 namespace log {

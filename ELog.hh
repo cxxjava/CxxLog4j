@@ -13,9 +13,9 @@
 #include "Efc.hh"
 
 //elog
-#include "EMDC.hh"
-#include "ENDC.hh"
-#include "ELoggerManager.hh"
+#include "./inc/EMDC.hh"
+#include "./inc/ENDC.hh"
+#include "./inc/ELoggerManager.hh"
 
 using namespace efc::log;
 

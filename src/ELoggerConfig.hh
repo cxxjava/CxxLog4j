@@ -9,8 +9,8 @@
 #define ELOGGERCONFIG_HH_
 
 #include "Efc.hh"
-#include "ELogger.hh"
-#include "EAppender.hh"
+#include "./EAppender.hh"
+#include "../inc/ELogger.hh"
 
 namespace efc {
 namespace log {

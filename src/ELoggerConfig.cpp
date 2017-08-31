@@ -5,9 +5,9 @@
  *      Author: cxxjava@163.com
  */
 
-#include "ELoggerConfig.hh"
-#include "ELoggerManagerImp.hh"
-#include "EConfiguration.hh"
+#include "./ELoggerConfig.hh"
+#include "./ELoggerManagerImp.hh"
+#include "./EConfiguration.hh"
 
 namespace efc {
 namespace log {
@@ -55,7 +55,7 @@ ELogger::Level ELoggerConfig::log(ELogEvent& event) {
 	}
 
 	if (getAdditivity()) {
-		sp<ELoggerConfig> parent = configuration->getParentLoggerConfig(getName());
+		ELoggerConfig* parent = configuration->getParentLoggerConfig(getName());
 		if (parent != null) {
 			parent->log(event);
 		}

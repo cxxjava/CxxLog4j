@@ -5,7 +5,7 @@
  *      Author: cxxjava@163.com
  */
 
-#include "EDailyRollingFileAppender.hh"
+#include "./EDailyRollingFileAppender.hh"
 
 namespace efc {
 namespace log {

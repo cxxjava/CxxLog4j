@@ -9,8 +9,8 @@
 #define EABSTRACTAPPENDER_HH_
 
 #include "Efc.hh"
-#include "EAppender.hh"
-#include "ELayout.hh"
+#include "./EAppender.hh"
+#include "./ELayout.hh"
 
 namespace efc {
 namespace log {

@@ -5,14 +5,13 @@
  *      Author: cxxjava@163.com
  */
 
-#include "EConfigurator.hh"
-#include "EOptionConverter.hh"
-#include "ELoggerManager.hh"
-#include "ELoggerImp.hh"
-#include "ELayoutFactory.hh"
-#include "EAppenderFactory.hh"
-#include "ESimpleLayout.hh"
-#include "EFileAppender.hh"
+#include "./EConfigurator.hh"
+#include "./EOptionConverter.hh"
+#include "./ELoggerImp.hh"
+#include "./ELayoutFactory.hh"
+#include "./EAppenderFactory.hh"
+#include "./ESimpleLayout.hh"
+#include "./EFileAppender.hh"
 
 namespace efc {
 namespace log {

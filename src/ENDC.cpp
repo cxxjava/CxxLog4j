@@ -5,8 +5,8 @@
  *      Author: cxxjava@163.com
  */
 
-#include "ENDC.hh"
-#include "ELoggerManager.hh"
+#include "../inc/ENDC.hh"
+#include "../inc/ELoggerManager.hh"
 
 namespace efc {
 namespace log {

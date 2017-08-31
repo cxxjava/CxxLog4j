@@ -9,7 +9,7 @@
 #define ELAYOUT_HH_
 
 #include "Efc.hh"
-#include "ELogEvent.hh"
+#include "./ELogEvent.hh"
 
 namespace efc {
 namespace log {

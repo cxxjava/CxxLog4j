@@ -8,7 +8,7 @@
 #ifndef ETTCCLAYOUT_HH_
 #define ETTCCLAYOUT_HH_
 
-#include "EAbstractLayout.hh"
+#include "./EAbstractLayout.hh"
 
 namespace efc {
 namespace log {

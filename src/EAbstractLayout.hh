@@ -8,7 +8,7 @@
 #ifndef EABSTRACTLAYOUT_HH_
 #define EABSTRACTLAYOUT_HH_
 
-#include "ELayout.hh"
+#include "./ELayout.hh"
 
 namespace efc {
 namespace log {

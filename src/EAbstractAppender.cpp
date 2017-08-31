@@ -5,8 +5,8 @@
  *      Author: cxxjava@163.com
  */
 
-#include "EAbstractAppender.hh"
-#include "EConfiguration.hh"
+#include "./EAbstractAppender.hh"
+#include "./EConfiguration.hh"
 
 namespace efc {
 namespace log {

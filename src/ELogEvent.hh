@@ -8,7 +8,7 @@
 #ifndef ELOGEVENT_HH_
 #define ELOGEVENT_HH_
 
-#include "ELogger.hh"
+#include "../inc/ELogger.hh"
 
 namespace efc {
 namespace log {

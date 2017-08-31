@@ -5,7 +5,7 @@
  *      Author: cxxjava@163.com
  */
 
-#include "EConsoleAppender.hh"
+#include "./EConsoleAppender.hh"
 
 namespace efc {
 namespace log {

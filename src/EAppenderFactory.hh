@@ -8,8 +8,8 @@
 #ifndef EAPPENDERFACTORY_HH_
 #define EAPPENDERFACTORY_HH_
 
-#include "EAppender.hh"
-#include "EConfiguration.hh"
+#include "./EAppender.hh"
+#include "./EConfiguration.hh"
 
 namespace efc {
 namespace log {

@@ -91,6 +91,15 @@ public:
 	virtual ELogger::Level setLevel(Level level) = 0;
 
 	/**
+	 * Log a message for regular (non-parameterized) log messages.
+	 *
+	 * @param level   One of the LOG_LEVEL_XXX constants defining the log level
+	 * @param message The message itself
+	 * @param t       The exception whose stack trace should be logged
+	 */
+	virtual void log(const char* _file_, int _line_, ELogger::Level level, const char* message, EThrowable* t) = 0;
+
+	/**
 	 * Is the logger instance enabled for the TRACE level?
 	 *
 	 * @return True if this Logger is enabled for the TRACE level,

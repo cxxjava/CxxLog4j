@@ -9,8 +9,8 @@
 #define EAPPENDER_HH_
 
 #include "Efc.hh"
-#include "ELogEvent.hh"
-#include "ELayout.hh"
+#include "./ELogEvent.hh"
+#include "./ELayout.hh"
 
 namespace efc {
 namespace log {

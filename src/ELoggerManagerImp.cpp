@@ -5,10 +5,10 @@
  *      Author: cxxjava@163.com
  */
 
-#include "ELoggerManager.hh"
-#include "ELoggerManagerImp.hh"
-#include "ELoggerImp.hh"
-#include "EConfigurator.hh"
+#include "./ELoggerManagerImp.hh"
+#include "./ELoggerImp.hh"
+#include "./EConfigurator.hh"
+#include "../inc/ELoggerManager.hh"
 
 namespace efc {
 namespace log {

@@ -5,8 +5,8 @@
  *      Author: cxxjava@163.com
  */
 
-#include "ERollingFileAppender.hh"
-#include "EOptionConverter.hh"
+#include "./ERollingFileAppender.hh"
+#include "./EOptionConverter.hh"
 
 namespace efc {
 namespace log {
@@ -17,7 +17,7 @@ ERollingFileAppender::ERollingFileAppender(EConfiguration* conf, EConfig* props,
 	maxFileSize_ = EOptionConverter::toFileSize(props->getString(maxFileSizePrefix.c_str()), 10*1024*1024L);
 
 	EString maxBackupIndexPrefix = prefix + ".MaxBackupIndex";
-	maxBackupIndex_ = props->getInteger(maxBackupIndexPrefix.c_str(), 1);
+	maxBackupIndex_ = props->getInt(maxBackupIndexPrefix.c_str(), 1);
 }
 
 llong ERollingFileAppender::getMaxFileSize() {
