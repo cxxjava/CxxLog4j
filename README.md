@@ -2,8 +2,11 @@
 
 ## C++ logging library like Log4j
 
-<br/>
-*chinese version: [简体中文](README.zh_cn.md)*
+
+
+chinese version: [简体中文](README.zh_cn.md)
+
+
 
 ### Table of Contents
 - [Characteristics](#characteristics)
@@ -21,7 +24,7 @@
 
 #### Example
   `c++:`
-  
+
   ```
   #include "Efc.hh"
   #include "ELog.hh"

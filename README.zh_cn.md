@@ -1,8 +1,12 @@
 # CxxJLog4j
 
 ## 山寨Log4j实现的C++强大类库.
-<br/>
-*英文版本: [English](README.md)*
+
+
+
+英文版本: [English](README.md)
+
+
 
 ### 目录
 - [特点](#特点)
@@ -20,7 +24,7 @@
 
 #### 示例
   `c++:`
-  
+
   ```
   #include "Efc.hh"
   #include "ELog.hh"
