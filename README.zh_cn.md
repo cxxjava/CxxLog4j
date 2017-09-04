@@ -1,24 +1,24 @@
 # CxxJLog4j
 
-##山寨Log4j实现的C++强大类库.
+## 山寨Log4j实现的C++强大类库.
 <br/>
 *英文版本: [English](README.md)*
 
 ### 目录
-  - [特点](#特点)
-  - [示例](#示例)
-  - [配置](#配置)
-  - [依赖](#依赖)
-  - [TODO](#todo)
-  - [Support](#support)
+- [特点](#特点)
+- [示例](#示例)
+- [配置](#配置)
+- [依赖](#依赖)
+- [TODO](#todo)
+- [Support](#support)
 
-####特点
+#### 特点
 * 跨平台：同时支持Linux32/64、OSX64、Win64等平台；
 * 高性能：同时具备C/C++和Java并发库的优点，性能爆棚；
 * 易开发：高仿Log4j1.2，支持多种日志格式输出，api简单易用；
 * 新卖点：支持程序运行过程中动态修改日志配置文件并实时生效!
 
-####示例
+#### 示例
   `c++:`
   
   ```
@@ -61,7 +61,7 @@
 更多示例：  
 [testlog.cpp](test/testlog.cpp)  
 
-####配置
+#### 配置
 详见log4j官方properties配置方式。
 
 配置示例：[log4e.properties](test/log4e.properties)
@@ -74,12 +74,11 @@ log.path = ./
 log4j.appender.file.File = ${log.path}/logs/all.log
 ```
 
-####依赖
+#### 依赖
 `CxxLog4j`基于[CxxJDK](https://github.com/cxxjava/cxxjdk)开发.  
 
-####TODO
+#### TODO
     AsyncAppender
 
-####Support
+#### Support
 Email: [cxxjava@163.com](mailto:cxxjava@163.com)
-
