@@ -8,7 +8,7 @@
 #ifndef ELOGGERIMP_HH_
 #define ELOGGERIMP_HH_
 
-#include "ESharedPtr.hh"
+#include "Efc.hh"
 #include "./ELoggerConfig.hh"
 #include "../inc/ELogger.hh"
 

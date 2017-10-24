@@ -37,48 +37,23 @@ endif
 
 CCOMPILE = gcc
 CPPCOMPILE = g++
-INCLUDEDIR = -I../../CxxJDK/inc \
-	-I../../CxxJDK/inc/comm \
-	-I../../CxxJDK/inc/efc \
-	-I../../CxxJDK/inc/efc/concurrent \
-	-I../../CxxJDK/inc/efc/cpp11 \
-	-I../../CxxJDK/inc/efc/nio \
-	-I../../CxxJDK/inc/libc \
+INCLUDEDIR = -I../../efc \
+	-I../../CxxJDK/efc \
 	-I../inc \
 	-I../ \
+	-I/usr/local/Cellar/openssl/1.0.2g/include \
 
 LINK = g++
 LINKOPTION = -std=$(CPPSTD) -g
-LIBDIRS = -L../../CxxJDK/lib/$(LIBDIR)
+LIBDIRS = -L../../efc/lib/$(LIBDIR) -L../../CxxJDK/lib/$(LIBDIR)
 APPENDLIB = 
 
 BASE_OBJS = 
 
-TESTLOG_OBJS = testlog.o \
-	../src/EAbstractAppender.o \
-	../src/EAbstractLayout.o \
-	../src/EAppenderFactory.o \
-	../src/EConfiguration.o \
-	../src/EConfigurator.o \
-	../src/EConsoleAppender.o \
-	../src/EDailyRollingFileAppender.o \
-	../src/EFileAppender.o \
-	../src/EFileLogWriter.o \
-	../src/EHTMLLayout.o \
-	../src/ELayoutFactory.o \
-	../src/ELogEvent.o \
-	../src/ELoggerConfig.o \
-	../src/ELoggerImp.o \
-	../src/ELoggerManager.o \
-	../src/ELoggerManagerImp.o \
-	../src/EMDC.o \
-	../src/ENDC.o \
-	../src/EOptionConverter.o \
-	../src/EPatternLayout.o \
-	../src/ERollingFileAppender.o \
-	../src/ESimpleLayout.o \
-	../src/ETTCCLayout.o \
-	../src/ETransform.o \
+TESTLOG_SRC   += $(sort $(wildcard ../src/*.cpp))
+TESTLOG_OBJS   += $(patsubst %.cpp,%.o, $(patsubst %.c,%.o, $(TESTLOG_SRC)))
+
+TESTLOG_OBJS += testlog.o
 
 $(TESTLOG): $(BASE_OBJS) $(TESTLOG_OBJS) $(APPENDLIB)
 	$(LINK) $(LINKOPTION) -o $(TESTLOG) $(LIBDIRS) $(BASE_OBJS) $(TESTLOG_OBJS) $(SHAREDLIB) $(APPENDLIB)

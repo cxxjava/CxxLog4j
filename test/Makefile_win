@@ -1,36 +1,36 @@
 ################OPTION###################
-# release or debug
-VERTYPE=RELEASE
 
-KERNEL:=$(shell uname)
-LIBDIR = win
-LIBESO = ..\..\CxxJDK\lib\$(LIBDIR)\eso19.lib
-LIBEFC = ..\..\CxxJDK\lib\$(LIBDIR)\efc19.lib
+CXXJDK_NAME = CxxJDK
 
 CCOMPILE = cl.exe
 LINK = link.exe
 
-!if $(VERTYPE) == RELEASE
+CCOMPILEVER = 0
+!IF [cl_version_LE.bat 16]
+CCOMPILEVER = 16
+!ELSEIF [cl_version_LE.bat 17]
+CCOMPILEVER = 17
+!ELSEIF [cl_version_LE.bat 18]
+CCOMPILEVER = 18
+!ELSEIF [cl_version_LE.bat 19]
+CCOMPILEVER = 19
+!ELSEIF [cl_version_LE.bat 20]
+CCOMPILEVER = 20
+!ENDIF
+
 COMPILEOPTION = -c /Zi /nologo /W3 /WX- /O2 /Oy- /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Gd /analyze- -D_WINDOWS -D_MBCS -D_LIB -DES_DECLARE_EXPORT -D__MAIN__
 TESTLOG = testlog.exe
-!else
-COMPILEOPTION = -c /Zi /nologo /W3 /WX- /O2 /Oy- /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Gd /analyze- -D_WINDOWS -D_MBCS -D_LIB -DES_DECLARE_EXPORT -D__MAIN__
-TESTLOG = testlog_d.exe
-!endif
 
 LINKOPTION = /NOLOGO /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86
 
-INCLUDEDIR = -I..\..\CxxJDK\inc \
-	-I..\..\CxxJDK\inc\comm \
-	-I..\..\CxxJDK\inc\efc \
-	-I..\..\CxxJDK\inc\efc\concurrent \
-	-I..\..\CxxJDK\inc\efc\cpp11 \
-	-I..\..\CxxJDK\inc\efc\nio \
-	-I..\..\CxxJDK\inc\libc \
+INCLUDEDIR = \
+ 	-I..\..\efc \
+	-I..\..\CxxJDK\efc \
 	-I..\inc \
 	-I..\ \
+	-IC:\OpenSSL-Win32\include
 
-LIBDIRS = $(LIBESO) $(LIBEFC) "Ws2_32.lib" "kernel32.lib" "user32.lib" "gdi32.lib" "winspool.lib" "comdlg32.lib" "advapi32.lib" "shell32.lib" "ole32.lib" "oleaut32.lib" "uuid.lib" "odbc32.lib" "odbccp32.lib"
+LIBDIRS = /LIBPATH:..\..\$(CXXJDK_NAME)\lib\win\ eso$(CCOMPILEVER).lib efc$(CCOMPILEVER).lib "Ws2_32.lib" "kernel32.lib" "user32.lib" "gdi32.lib" "winspool.lib" "comdlg32.lib" "advapi32.lib" "shell32.lib" "ole32.lib" "oleaut32.lib" "uuid.lib" "odbc32.lib" "odbccp32.lib"
 
 BASE_OBJS = 
 

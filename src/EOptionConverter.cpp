@@ -5,8 +5,7 @@
  *      Author: cxxjava@163.com
  */
 
-#include "ESystem.hh"
-#include "ENumberFormatException.hh"
+#include "Efc.hh"
 #include "./EOptionConverter.hh"
 
 namespace efc {

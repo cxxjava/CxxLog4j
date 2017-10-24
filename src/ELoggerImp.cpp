@@ -5,7 +5,6 @@
  *      Author: cxxjava@163.com
  */
 
-#include "ESystem.hh"
 #include "./ELoggerImp.hh"
 #include "./ELoggerManagerImp.hh"
 
