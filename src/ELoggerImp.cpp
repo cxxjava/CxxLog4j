@@ -42,7 +42,7 @@ boolean ELoggerImp::isTraceEnabled() {
 	return isLevelEnabled(LEVEL_TRACE);
 }
 
-void ELoggerImp::trace(EString& message) {
+void ELoggerImp::trace(EString message) {
 	log(null, -1, LEVEL_TRACE, message.c_str(), null);
 }
 
@@ -54,11 +54,15 @@ void ELoggerImp::trace(const char* msg, EThrowable& t) {
 	log(null, -1, LEVEL_TRACE, msg, &t);
 }
 
+void ELoggerImp::trace(EString msg, EThrowable& t) {
+	log(null, -1, LEVEL_TRACE, msg.c_str(), &t);
+}
+
 boolean ELoggerImp::isDebugEnabled() {
 	return isLevelEnabled(LEVEL_DEBUG);
 }
 
-void ELoggerImp::debug(EString& message) {
+void ELoggerImp::debug(EString message) {
 	log(null, -1, LEVEL_DEBUG, message.c_str(), null);
 }
 
@@ -70,11 +74,15 @@ void ELoggerImp::debug(const char* msg, EThrowable& t) {
 	log(null, -1, LEVEL_DEBUG, msg, &t);
 }
 
+void ELoggerImp::debug(EString msg, EThrowable& t) {
+	log(null, -1, LEVEL_DEBUG, msg.c_str(), &t);
+}
+
 boolean ELoggerImp::isInfoEnabled() {
 	return isLevelEnabled(LEVEL_INFO);
 }
 
-void ELoggerImp::info(EString& message) {
+void ELoggerImp::info(EString message) {
 	log(null, -1, LEVEL_INFO, message.c_str(), null);
 }
 
@@ -86,11 +94,15 @@ void ELoggerImp::info(const char* msg, EThrowable& t) {
 	log(null, -1, LEVEL_INFO, msg, &t);
 }
 
+void ELoggerImp::info(EString msg, EThrowable& t) {
+	log(null, -1, LEVEL_INFO, msg.c_str(), &t);
+}
+
 boolean ELoggerImp::isWarnEnabled() {
 	return isLevelEnabled(LEVEL_WARN);
 }
 
-void ELoggerImp::warn(EString& message) {
+void ELoggerImp::warn(EString message) {
 	log(null, -1, LEVEL_WARN, message.c_str(), null);
 }
 
@@ -102,11 +114,15 @@ void ELoggerImp::warn(const char* msg, EThrowable& t) {
 	log(null, -1, LEVEL_WARN, msg, &t);
 }
 
+void ELoggerImp::warn(EString msg, EThrowable& t) {
+	log(null, -1, LEVEL_WARN, msg.c_str(), &t);
+}
+
 boolean ELoggerImp::isErrorEnabled() {
 	return isLevelEnabled(LEVEL_ERROR);
 }
 
-void ELoggerImp::error(EString& message) {
+void ELoggerImp::error(EString message) {
 	log(null, -1, LEVEL_ERROR, message.c_str(), null);
 }
 
@@ -118,8 +134,12 @@ void ELoggerImp::error(const char* msg, EThrowable& t) {
 	log(null, -1, LEVEL_ERROR, msg, &t);
 }
 
+void ELoggerImp::error(EString msg, EThrowable& t) {
+	log(null, -1, LEVEL_ERROR, msg.c_str(), &t);
+}
+
 void ELoggerImp::trace(const char* _file_, int _line_,
-		EString& message) {
+		EString message) {
 	log(_file_, _line_, LEVEL_TRACE, message.c_str(), null);
 }
 
@@ -137,6 +157,11 @@ void ELoggerImp::trace(const char* _file_, int _line_,
 	log(_file_, _line_, LEVEL_TRACE, msg, &t);
 }
 
+void ELoggerImp::trace(const char* _file_, int _line_,
+		EString msg, EThrowable& t) {
+	log(_file_, _line_, LEVEL_TRACE, msg.c_str(), &t);
+}
+
 void ELoggerImp::trace_(const char* format, ...) {
 	MYLOG(null, -1, LEVEL_TRACE, format);
 }
@@ -147,7 +172,7 @@ void ELoggerImp::trace__(const char* _file_, int _line_,
 }
 
 void ELoggerImp::debug(const char* _file_, int _line_,
-		EString& message) {
+		EString message) {
 	log(_file_, _line_, LEVEL_DEBUG, message.c_str(), null);
 }
 
@@ -165,6 +190,11 @@ void ELoggerImp::debug(const char* _file_, int _line_,
 	log(_file_, _line_, LEVEL_DEBUG, msg, &t);
 }
 
+void ELoggerImp::debug(const char* _file_, int _line_,
+		EString msg, EThrowable& t) {
+	log(_file_, _line_, LEVEL_DEBUG, msg.c_str(), &t);
+}
+
 void ELoggerImp::debug_(const char* format, ...) {
 	MYLOG(null, -1, LEVEL_DEBUG, format);
 }
@@ -175,7 +205,7 @@ void ELoggerImp::debug__(const char* _file_, int _line_,
 }
 
 void ELoggerImp::info(const char* _file_, int _line_,
-		EString& message) {
+		EString message) {
 	log(_file_, _line_, LEVEL_INFO, message.c_str(), null);
 }
 
@@ -193,6 +223,11 @@ void ELoggerImp::info(const char* _file_, int _line_, const char* msg,
 	log(_file_, _line_, LEVEL_INFO, msg, &t);
 }
 
+void ELoggerImp::info(const char* _file_, int _line_, EString msg,
+		EThrowable& t) {
+	log(_file_, _line_, LEVEL_INFO, msg.c_str(), &t);
+}
+
 void ELoggerImp::info_(const char* format, ...) {
 	MYLOG(null, -1, LEVEL_INFO, format);
 }
@@ -203,7 +238,7 @@ void ELoggerImp::info__(const char* _file_, int _line_,
 }
 
 void ELoggerImp::warn(const char* _file_, int _line_,
-		EString& message) {
+		EString message) {
 	log(_file_, _line_, LEVEL_WARN, message.c_str(), null);
 }
 
@@ -221,6 +256,11 @@ void ELoggerImp::warn(const char* _file_, int _line_, const char* msg,
 	log(_file_, _line_, LEVEL_WARN, msg, &t);
 }
 
+void ELoggerImp::warn(const char* _file_, int _line_, EString msg,
+		EThrowable& t) {
+	log(_file_, _line_, LEVEL_WARN, msg.c_str(), &t);
+}
+
 void ELoggerImp::warn_(const char* format, ...) {
 	MYLOG(null, -1, LEVEL_WARN, format);
 }
@@ -231,7 +271,7 @@ void ELoggerImp::warn__(const char* _file_, int _line_,
 }
 
 void ELoggerImp::error(const char* _file_, int _line_,
-		EString& message) {
+		EString message) {
 	log(_file_, _line_, LEVEL_ERROR, message.c_str(), null);
 }
 
@@ -247,6 +287,11 @@ void ELoggerImp::error(const char* _file_, int _line_,
 void ELoggerImp::error(const char* _file_, int _line_,
 		const char* msg, EThrowable& t) {
 	log(_file_, _line_, LEVEL_ERROR, msg, &t);
+}
+
+void ELoggerImp::error(const char* _file_, int _line_,
+		EString msg, EThrowable& t) {
+	log(_file_, _line_, LEVEL_ERROR, msg.c_str(), &t);
 }
 
 void ELoggerImp::error_(const char* format, ...) {
@@ -290,7 +335,7 @@ ELogger::Level ELoggerImp::setLevel(ELogger::Level level) {
 }
 
 boolean ELoggerImp::equals(EObject* o) {
-	ELoggerImp* obj = dynamic_cast<ELoggerImp*>(obj);
+	ELoggerImp* obj = dynamic_cast<ELoggerImp*>(o);
 	return obj ?
 			(((void*) this == (void*) obj) ?
 					true : (this->name.equals(obj->name) ? true : false )) :
@@ -306,12 +351,17 @@ void ELoggerImp::log(const char* _file_, int _line_, ELogger::Level level, const
 	ELogEvent event(name.c_str(), level, message, t, _file_, _line_);
 
 	sp<EConfiguration> configuration = getLoggerManagerImp()->getCurrentConfigure(); //keep it alive!
-	ELoggerConfig* config = configuration->getLoggerConfig(name.c_str());
-	if (config) {
-		recentLevel = config->log(event);
-		recentLevelUpdatedTimestamp = ESystem::currentTimeMillis();
+	if (configuration != null) {
+		ELoggerConfig* config = configuration->getLoggerConfig(name.c_str());
+		if (config) {
+			recentLevel = config->log(event);
+			recentLevelUpdatedTimestamp = ESystem::currentTimeMillis();
+		} else {
+			fprintf(stderr, "Can't get ELoggerConfig Object!\n");
+		}
 	} else {
-		fprintf(stderr, "Can't get ELoggerConfig Object!\n");
+		fprintf(stderr, message);
+		fprintf(stderr, "\n");
 	}
 }
 

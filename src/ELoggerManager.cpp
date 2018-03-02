@@ -46,7 +46,7 @@ sp<ELogger> ELoggerManager::getLogger(const char* name) {
 	return IMP->getLogger(name);
 }
 
-sp<EConcurrentCollection<ELogger> > ELoggerManager::getLoggers() {
+ECollection<sp<ELogger> >* ELoggerManager::getLoggers() {
 	return IMP->getLoggers();
 }
 

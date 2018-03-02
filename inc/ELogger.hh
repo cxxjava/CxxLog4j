@@ -116,8 +116,8 @@ public:
 	 * @param arguments a list of 3 or more arguments
 	 * @since 1.4
 	 */
-	virtual void trace(EString& message) = 0;
-	virtual void trace(const char* _file_, int _line_, EString& message) = 0;
+	virtual void trace(EString message) = 0;
+	virtual void trace(const char* _file_, int _line_, EString message) = 0;
 	virtual void trace(const char* message) = 0;
 	virtual void trace(const char* _file_, int _line_, const char* message) = 0;
 
@@ -131,6 +131,8 @@ public:
 	virtual void trace(EThrowable& t) = 0;
 	virtual void trace(const char* msg, EThrowable& t) = 0;
 	virtual void trace(const char* _file_, int _line_, const char* msg, EThrowable& t) = 0;
+	virtual void trace(EString msg, EThrowable& t) = 0;
+	virtual void trace(const char* _file_, int _line_, EString msg, EThrowable& t) = 0;
 
 	/**
 	 * Log a message at the DEBUG level according to the specified format
@@ -161,8 +163,8 @@ public:
 	 *
 	 * @param message    the logging string
 	 */
-	virtual void debug(EString& message) = 0;
-	virtual void debug(const char* _file_, int _line_, EString& message) = 0;
+	virtual void debug(EString message) = 0;
+	virtual void debug(const char* _file_, int _line_, EString message) = 0;
 	virtual void debug(const char* message) = 0;
 	virtual void debug(const char* _file_, int _line_, const char* message) = 0;
 
@@ -176,6 +178,8 @@ public:
 	virtual void debug(EThrowable& t) = 0;
 	virtual void debug(const char* msg, EThrowable& t) = 0;
 	virtual void debug(const char* _file_, int _line_, const char* msg, EThrowable& t) = 0;
+	virtual void debug(EString msg, EThrowable& t) = 0;
+	virtual void debug(const char* _file_, int _line_, EString msg, EThrowable& t) = 0;
 
 	/**
 	 * Log a message at the DEBUG level according to the specified format
@@ -209,8 +213,8 @@ public:
 	 * @param format    the format string
 	 * @param arguments a list of 3 or more arguments
 	 */
-	virtual void info(EString& message) = 0;
-	virtual void info(const char* _file_, int _line_, EString& message) = 0;
+	virtual void info(EString message) = 0;
+	virtual void info(const char* _file_, int _line_, EString message) = 0;
 	virtual void info(const char* message) = 0;
 	virtual void info(const char* _file_, int _line_, const char* message) = 0;
 
@@ -224,6 +228,8 @@ public:
 	virtual void info(EThrowable& t) = 0;
 	virtual void info(const char* msg, EThrowable& t) = 0;
 	virtual void info(const char* _file_, int _line_, const char* msg, EThrowable& t) = 0;
+	virtual void info(EString msg, EThrowable& t) = 0;
+	virtual void info(const char* _file_, int _line_, EString msg, EThrowable& t) = 0;
 
 	/**
 	 * Log a message at the ERROR level according to the specified format
@@ -255,8 +261,8 @@ public:
 	 *
 	 * @param message    the logging string
 	 */
-	virtual void warn(EString& message) = 0;
-	virtual void warn(const char* _file_, int _line_, EString& message) = 0;
+	virtual void warn(EString message) = 0;
+	virtual void warn(const char* _file_, int _line_, EString message) = 0;
 	virtual void warn(const char* message) = 0;
 	virtual void warn(const char* _file_, int _line_, const char* message) = 0;
 
@@ -270,6 +276,8 @@ public:
 	virtual void warn(EThrowable& t) = 0;
 	virtual void warn(const char* msg, EThrowable& t) = 0;
 	virtual void warn(const char* _file_, int _line_, const char* msg, EThrowable& t) = 0;
+	virtual void warn(EString msg, EThrowable& t) = 0;
+	virtual void warn(const char* _file_, int _line_, EString msg, EThrowable& t) = 0;
 
 	/**
 	 * Log a message at the WARN level according to the specified format
@@ -301,8 +309,8 @@ public:
 	 *
 	 * @param message    the logging string
 	 */
-	virtual void error(EString& message) = 0;
-	virtual void error(const char* _file_, int _line_, EString& message) = 0;
+	virtual void error(EString message) = 0;
+	virtual void error(const char* _file_, int _line_, EString message) = 0;
 	virtual void error(const char* message) = 0;
 	virtual void error(const char* _file_, int _line_, const char* message) = 0;
 
@@ -316,6 +324,8 @@ public:
 	virtual void error(EThrowable& t) = 0;
 	virtual void error(const char* msg, EThrowable& t) = 0;
 	virtual void error(const char* _file_, int _line_, const char* msg, EThrowable& t) = 0;
+	virtual void error(EString msg, EThrowable& t) = 0;
+	virtual void error(const char* _file_, int _line_, EString msg, EThrowable& t) = 0;
 
 	/**
 	 * Log a message at the ERROR level according to the specified format

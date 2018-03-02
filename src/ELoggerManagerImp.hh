@@ -25,7 +25,7 @@ public:
 	void flushConfig();
 
 	sp<ELogger> getLogger(const char* name);
-	sp<EConcurrentCollection<ELogger> > getLoggers();
+	ECollection<sp<ELogger> >* getLoggers();
 
 	void remove(const char* name);
 

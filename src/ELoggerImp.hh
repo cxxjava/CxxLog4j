@@ -63,8 +63,8 @@ public:
 	 * @param arguments a list of 3 or more arguments
 	 * @since 1.4
 	 */
-	void trace(EString& message);
-	void trace(const char* _file_, int _line_, EString& message);
+	void trace(EString message);
+	void trace(const char* _file_, int _line_, EString message);
 	void trace(const char* message);
 	void trace(const char* _file_, int _line_, const char* message);
 
@@ -78,6 +78,8 @@ public:
 	void trace(EThrowable& t);
 	void trace(const char* msg, EThrowable& t);
 	void trace(const char* _file_, int _line_, const char* msg, EThrowable& t);
+	void trace(EString msg, EThrowable& t);
+	void trace(const char* _file_, int _line_, EString msg, EThrowable& t);
 
 	/**
 	 * Log a message at the DEBUG level according to the specified format
@@ -108,8 +110,8 @@ public:
 	 *
 	 * @param message    the logging string
 	 */
-	void debug(EString& message);
-	void debug(const char* _file_, int _line_, EString& message);
+	void debug(EString message);
+	void debug(const char* _file_, int _line_, EString message);
 	void debug(const char* message);
 	void debug(const char* _file_, int _line_, const char* message);
 
@@ -123,6 +125,8 @@ public:
 	void debug(EThrowable& t);
 	void debug(const char* msg, EThrowable& t);
 	void debug(const char* _file_, int _line_, const char* msg, EThrowable& t);
+	void debug(EString msg, EThrowable& t);
+	void debug(const char* _file_, int _line_, EString msg, EThrowable& t);
 
 	/**
 	 * Log a message at the DEBUG level according to the specified format
@@ -156,8 +160,8 @@ public:
 	 * @param format    the format string
 	 * @param arguments a list of 3 or more arguments
 	 */
-	void info(EString& message);
-	void info(const char* _file_, int _line_, EString& message);
+	void info(EString message);
+	void info(const char* _file_, int _line_, EString message);
 	void info(const char* message);
 	void info(const char* _file_, int _line_, const char* message);
 
@@ -171,6 +175,8 @@ public:
 	void info(EThrowable& t);
 	void info(const char* msg, EThrowable& t);
 	void info(const char* _file_, int _line_, const char* msg, EThrowable& t);
+	void info(EString msg, EThrowable& t);
+	void info(const char* _file_, int _line_, EString msg, EThrowable& t);
 
 	/**
 	 * Log a message at the ERROR level according to the specified format
@@ -202,8 +208,8 @@ public:
 	 *
 	 * @param message    the logging string
 	 */
-	void warn(EString& message);
-	void warn(const char* _file_, int _line_, EString& message);
+	void warn(EString message);
+	void warn(const char* _file_, int _line_, EString message);
 	void warn(const char* message);
 	void warn(const char* _file_, int _line_, const char* message);
 
@@ -217,6 +223,8 @@ public:
 	void warn(EThrowable& t);
 	void warn(const char* msg, EThrowable& t);
 	void warn(const char* _file_, int _line_, const char* msg, EThrowable& t);
+	void warn(EString msg, EThrowable& t);
+	void warn(const char* _file_, int _line_, EString msg, EThrowable& t);
 
 	/**
 	 * Log a message at the WARN level according to the specified format
@@ -248,8 +256,8 @@ public:
 	 *
 	 * @param message    the logging string
 	 */
-	void error(EString& message);
-	void error(const char* _file_, int _line_, EString& message);
+	void error(EString message);
+	void error(const char* _file_, int _line_, EString message);
 	void error(const char* message);
 	void error(const char* _file_, int _line_, const char* message);
 
@@ -263,6 +271,8 @@ public:
 	void error(EThrowable& t);
 	void error(const char* msg, EThrowable& t);
 	void error(const char* _file_, int _line_, const char* msg, EThrowable& t);
+	void error(EString msg, EThrowable& t);
+	void error(const char* _file_, int _line_, EString msg, EThrowable& t);
 
 	/**
 	 * Log a message at the ERROR level according to the specified format

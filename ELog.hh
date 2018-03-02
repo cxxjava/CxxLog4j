@@ -8,7 +8,7 @@
 #ifndef ELOG_HH_
 #define ELOG_HH_
 
-#define ELOG_VERSION "0.4.0"
+#define ELOG_VERSION "0.5.0"
 
 #include "Efc.hh"
 

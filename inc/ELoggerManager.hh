@@ -48,7 +48,7 @@ public:
 	/**
 	 * Get all loggers.
 	 */
-	static sp<EConcurrentCollection<ELogger> > getLoggers();
+	static ECollection<sp<ELogger> >* getLoggers();
 
 	/**
 	 * Remove a logger.

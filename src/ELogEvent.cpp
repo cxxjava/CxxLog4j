@@ -73,7 +73,12 @@ const int ELogEvent::getLineNumber() {
 }
 
 EString ELogEvent::getThrowableStr() {
-	return throwable ? throwable->toString() : null;
+	return throwable ?
+			((message && *message) ?
+					(throwable->toString() + "\nstack trace:\n"
+							+ throwable->getStackTrace()) :
+					throwable->toString()) :
+			null;
 }
 
 } /* namespace log */

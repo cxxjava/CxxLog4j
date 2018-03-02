@@ -201,7 +201,7 @@ public:
 					return name;
 				}
 			}
-			return name.substr(end + 1);
+			return name.substring(end + 1);
 		}
 	}
 
@@ -299,8 +299,7 @@ public:
 
 			EHashMap<EString*, EString*>* hm = event.getMDC();
 			if (hm) {
-				sp<ESet<EMapEntry<EString*, EString*>*> > set = hm->entrySet();
-				sp<EIterator<EMapEntry<EString*, EString*>*> > iter = set->iterator();
+				sp<EIterator<EMapEntry<EString*, EString*>*> > iter = hm->entrySet()->iterator();
 				while(iter->hasNext()) {
 					EMapEntry<EString*, EString*>* me = iter->next();
 					EString x = EString::formatOf("{%s,%s}",
@@ -337,7 +336,7 @@ public:
 			for (int i = 1; i < precision && p != -1; ++i)
 				p = text.indexOf(' ', p + 1);
 
-			return text.substr(0, p);
+			return text.substring(0, p);
 		}
 	}
 
@@ -472,7 +471,7 @@ private:
 		if ((pos < pattern.length()) && (pattern[pos] == '{')) {
 			int end = pattern.indexOf('}', pos);
 			if (end != -1) {
-				EString r = pattern.substr(pos + 1, end - pos - 1);
+				EString r = pattern.substring(pos + 1, end);
 				pos = end + 1;
 				return r;
 			} else {

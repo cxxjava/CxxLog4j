@@ -40,27 +40,27 @@ static void test_logger() {
 	ELOG_E(logger, "ndc xxx");
 }
 
+class ThreadX : public EThread {
+public:
+	virtual void run() {
+		long i = 0;
+		while (true) {
+			ENDC ndc("abc");
+			EMDC mdc("x1", "v1");
+			mdc.put("x2", "v2");
+//	ELoggerManager::getRootLogger()->setLevel(ELogger::LEVEL_OFF);
+			ELOG_I(logger, "i=%d", i++);
+			ELOG_W(logger, "i=%d", i++);
+			ELOG_E(logger, "i=%d", i++);
+
+			EThread::sleep(100);
+		}
+	}
+};
+
 static void test_logger_multi_threads() {
 	ELoggerManager::init("log4e.properties");
-//	ELoggerManager::getRootLogger()->setLevel(ELogger::LEVEL_OFF);
 
-	class ThreadX : public EThread {
-	public:
-		virtual void run() {
-			long i = 0;
-			while (true) {
-				ENDC ndc("abc");
-				EMDC mdc("x1", "v1");
-				mdc.put("x2", "v2");
-
-				ELOG_I(logger, "i=%d", i++);
-				ELOG_W(logger, "i=%d", i++);
-				ELOG_E(logger, "i=%d", i++);
-
-				EThread::sleep(100);
-			}
-		}
-	};
 
 	EArray<ThreadX*> arr;
 	for (int i = 0; i < 10; i++) {
@@ -81,8 +81,8 @@ static void test_logger_multi_threads() {
 }
 
 static void test_test(int argc, const char** argv) {
-//	test_logger();
-	test_logger_multi_threads();
+	test_logger();
+//	test_logger_multi_threads();
 //
 //	EThread::sleep(3000);
 }

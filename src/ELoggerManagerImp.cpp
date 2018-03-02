@@ -59,7 +59,7 @@ void ELoggerManagerImp::flushConfig() {
 					"log4j.appender.stdout = org.apache.log4j.ConsoleAppender\r\n"
 					"log4j.appender.stdout.Target = System.out\r\n"
 					"log4j.appender.stdout.layout = org.apache.log4j.PatternLayout\r\n"
-					"log4j.appender.stdout.layout.ConversionPattern = %d{ABSOLUTE} %5p %c{1}:%L - %m%n";
+					"log4j.appender.stdout.layout.ConversionPattern = %d{ABSOLUTE} %5p %c{1}:%L - %m %T%n";
 			EByteArrayInputStream bais((void*)default_props, strlen(default_props));
 			EConfig properties;
 			properties.load(&bais);
@@ -86,7 +86,7 @@ sp<ELogger> ELoggerManagerImp::getLogger(const char* name) {
 	return logger;
 }
 
-sp<EConcurrentCollection<ELogger> > ELoggerManagerImp::getLoggers() {
+ECollection<sp<ELogger> >* ELoggerManagerImp::getLoggers() {
 	return loggers->values();
 }
 
